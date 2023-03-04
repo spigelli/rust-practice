@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Guessing Game",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/guessing_game/target/debug/guessing_game",
+      "args": [],
+      "cwd": "${workspaceRoot}/guessing_game"
+    },
+    {
       "type": "lldb",
       "request": "launch",
       "name": "Launch Hello Cargo",
@@ -14,3 +22,4 @@
     },
   ]
 }
+
