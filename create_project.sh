@@ -1,4 +1,3 @@
-
 #! /bin/bash
 
 # This script is used to create a new project directory
@@ -88,8 +87,8 @@ function add_project_to_cargo_toml() {
   # Split the Cargo.toml file into two vars based on where
   # the members array ends
   MEMBERS_END="$(cat Cargo.toml | sed -n '/members = \[/,$p' | tail -n +2)"
-  # Everything up to and including the members array
-  MEMBERS_START="$(cat Cargo.toml | sed -n '1,/"members": \[/p')"
+  # Everything up to and including the members array start line
+  MEMBERS_START="$(cat Cargo.toml | sed -n '1,/"members": \[/p' | head -n -1)"
 
   # Write the new Cargo.toml file
   echo -e "$MEMBERS_START
@@ -107,7 +106,7 @@ check_repo_root && \
 create_cargo_project && \
 add_run_config && \
 add_project_to_cargo_toml && \
-git checkout -b $(sed 's/_/-/g' <<< $PROJECT_DIR) && \
 cd $PROJECT_DIR && \
 cargo build && \
-cd - 
+cd - && \
+git checkout -b $(sed 's/_/-/g' <<< $PROJECT_DIR)

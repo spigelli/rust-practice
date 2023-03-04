@@ -4,14 +4,10 @@
 
 # The first argument is the path to the project directory
 function parse_args() {
-  if [ $# -ne 1 ]; then
-      echo "Usage: $0 <project directory>"
-      exit 1
-  fi
   # Infer the kebab-case branch name from the current branch
   CURRENT_BRANCH="$(git branch --show-current)"
   # The project directory name i
-  PROJECT_DIR=$(echo -e "./$1/")
+  PROJECT_DIR=$(echo -e "./$CURRENT_BRANCH/" | sed "s/-/_/g")
   # The project name is the branch name capitalized with spaces
   PROJECT_NAME=$(echo -e "$CURRENT_BRANCH" \
     | sed 's/-/ /g' \
@@ -22,6 +18,10 @@ function parse_args() {
       for(i=1;i<=NF;i++) \
       sub(/./,toupper(substr($i,1,1)),$i) \
     }1')
+
+  echo -e "\e[1;32mProject name: $PROJECT_NAME\e[0m"
+  echo -e "\e[1;32mProject directory: $PROJECT_DIR\e[0m"
+  echo -e "\e[1;32mBranch name: $CURRENT_BRANCH\e[0m"
 }
 
 # This function checks out the local branch and pushes it to
@@ -29,6 +29,9 @@ function parse_args() {
 function checkout_and_commit() {
   `# Add the project directory to the repo` \
   git add $PROJECT_DIR && \
+  git add Cargo.toml && \
+  git add Cargo.lock && \
+  git add .vscode/launch.json && \
   `# Commit the changes` \
   git commit -m "Added example: $PROJECT_NAME" && \
   echo -e "\e[1;32mSuccessfully committed $PROJECT_DIR on branch: $CURRENT_BRANCH \e[0m" && \
