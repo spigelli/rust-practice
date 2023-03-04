@@ -28,17 +28,16 @@ function parse_args() {
 # the remote
 function checkout_and_commit() {
   `# Add the project directory to the repo` \
-  git add $PROJECT_DIR && \
-  git add Cargo.toml && \
-  git add Cargo.lock && \
-  git add .vscode/launch.json && \
+  git add $PROJECT_DIR ; \
+  git add Cargo.toml ; \
+  git add Cargo.lock ; \
+  git add .vscode/launch.json ; \
   `# Commit the changes` \
-  git commit -m "Added example: $PROJECT_NAME" && \
+  git commit -m "Added example: $PROJECT_NAME" ; \
   echo -e "\e[1;32mSuccessfully committed $PROJECT_DIR on branch: $CURRENT_BRANCH \e[0m" && \
   `# Push the branch to the remote` \
   git push origin $CURRENT_BRANCH && \
   echo -e "\e[1;32mSuccessfully pushed $PROJECT_DIR on branch: $CURRENT_BRANCH \e[0m" || \
-  `# Output an error message if the push fails and exit` && \
   ( \
     echo -e "\e[1;31mFailed to push $PROJECT_DIR on branch: $CURRENT_BRANCH \e[0m" && \
     exit 1 \

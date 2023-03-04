@@ -5,22 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Hello Cargo",
-      "type": "lldb",
-      "request": "launch",
-      "program": "${workspaceRoot}/hello_cargo/target/debug/hello_cargo",
-      "args": [],
-      "cwd": "${workspaceRoot}/hello_cargo"
-    },
-    {
-      "name": "Launch Guessing Game",
-      "type": "lldb",
-      "request": "launch",
-      "program": "${workspaceRoot}/guessing_game/target/debug/guessing_game",
-      "args": [],
-      "cwd": "${workspaceRoot}/guessing_game"
-    },
-    {
       "type": "lldb",
       "request": "launch",
       "name": "Launch Hello Cargo",
@@ -30,4 +14,3 @@
     },
   ]
 }
-
