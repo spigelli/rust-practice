@@ -35,16 +35,17 @@ function checkout_and_commit() {
 # merging.
 function create_and_merge_pr() {
   # Create the pr and capture the pr id in a variable
-  PR_ID=$(
-    gh pr create \
-      --fill \
-      --base main \
-      --json id \
-      --jq '.id'
-  )
+  # The last line in the output will be something like:
+  #  https://github.com/spigelli/rust-practice/pull/1
+  # We want to capture the number at the end of the line
+  gh pr create \
+    --title "Added example: $PROJECT_NAME" \
+    --body "Added example: $PROJECT_NAME" \
+    --base main \
+    --head $PROJECT_DIR
 
   # Merge the pr and delete the branch
-  gh pr merge $PR_ID \
+  gh pr merge $PROJECT_DIR \
     --delete-branch \
     --rebase
 }
