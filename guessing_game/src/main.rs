@@ -20,11 +20,17 @@ fn main() {
 
     // Now we need to cast the string to an integer
     // We can do this with the parse method
-    let guess: u32 = guess
+    let guess: u32 = match guess
         .trim()
-        .parse()
-        .expect("Type a number");
-    // Catch the error if the user doesn't input a number
+        .parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("Please type a number!");
+                // In the case that there was an error,
+                // set the guess to 0
+                0
+            },
+        };
 
     let did_win: bool;
 
