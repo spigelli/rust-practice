@@ -134,7 +134,86 @@ fn integer_types() {
     print_integer_types();
 }
 
+fn floats() {
+    log!("=========Float Types=========");
+    log!("Float types are used to represent fractional numbers");
+    log!("There are signed and unsigned versions of each float type");
+    log!("{}", [
+        "Aditionally, there are types that are the same size as the", 
+        "architecture they are running on (arch: f32, f64)",
+    ].join(" "));
+    log!("{}", [
+        "These are 64 bits and 32 bits for 64-bit and 32-bit architectures",
+        "respectively",
+    ].join(" "));
+    log!("");
+    log!("         Float Types");
+    print_floats();
+}
+
+fn print_floats() {
+    let headers = vec!["Length", "Signed", "Unsigned"];
+    let data = vec![
+        vec!["32-bit", "f32", "f32"],
+        vec!["64-bit", "f64", "f64"],
+    ];
+    print_table(headers, data);
+}
+
+fn chars() {
+    log!("=========Char Type=========");
+    log!("Char types are used to represent a single unicode character");
+    log!("Char types are 4 bytes in size");
+    log!("Char types are enclosed in single quotes");
+    log!("");
+    log!("         Char Type");
+    print_chars();
+}
+
+fn print_chars() {
+    let headers = vec!["Length", "Type"];
+    let data = vec![
+        vec!["4 bytes", "char"],
+    ];
+    print_table(headers, data);
+}
+
+fn booleans() {
+    log!("=========Boolean Type=========");
+    log!("Boolean types are used to represent a truth value");
+    log!("Boolean types are 1 byte in size");
+    log!("Boolean types are either true or false");
+    log!("");
+    log!("         Boolean Type");
+    print_booleans();
+}
+
+fn print_booleans() {
+    let headers = vec!["Length", "Type"];
+    let data = vec![
+        vec!["1 byte", "bool"],
+    ];
+    print_table(headers, data);
+}
+
+fn unit() {
+    log!("=========Unit Type=========");
+    log!("Unit types are used to represent the absence of a value");
+    log!("Unit types are 0 bytes in size");
+    log!("Unit types are written as ()");
+    log!("");
+    log!("         Unit Type");
+}
+
 fn main() {
     log!("");
     integer_types();
+    log!("");
+    floats();
+    log!("");
+    chars();
+    log!("");
+    booleans();
+    log!("");
+    unit();
 }
