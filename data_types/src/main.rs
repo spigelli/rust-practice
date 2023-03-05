@@ -17,7 +17,12 @@ macro_rules! log {
 /// Vertical pipes should be added to both sides of all rows except the top
 /// and bottom borders
 /// Rows should be separated by a newline
-fn print_table(headers: Vec<&str>, data: Vec<Vec<&str>>) {
+fn print_table(
+    headers: Vec<&str>,
+    data: Vec<Vec<&str>>,
+    // Add extra padding to data arguments (bool, default: false)
+    extra_padding: bool,
+) {
     let num_columns = headers.len();
     let mut table = String::new();
         // The maximum length of all cells
@@ -65,7 +70,11 @@ fn print_table(headers: Vec<&str>, data: Vec<Vec<&str>>) {
     for row in data {
         table.push_str("│");
         for cell in row {
-            table.push_str(&cell.pad_to_width(pad_width));
+            if extra_padding {
+                table.push_str(&cell.pad_to_width(pad_width + 2));
+            } else {
+                table.push_str(&cell.pad_to_width(pad_width));
+            }
             table.push_str("│");
         }
         table.push_str("\n");
@@ -114,7 +123,7 @@ fn print_integer_types() {
         vec!["128-bit", "i128", "u128"],
         vec!["arch", "isize", "usize"],
     ];
-    print_table(headers, data);
+    print_table(headers, data, false);
 }
 
 fn integer_types() {
@@ -157,7 +166,7 @@ fn print_floats() {
         vec!["32-bit", "f32", "f32"],
         vec!["64-bit", "f64", "f64"],
     ];
-    print_table(headers, data);
+    print_table(headers, data, false);
 }
 
 fn chars() {
@@ -175,7 +184,7 @@ fn print_chars() {
     let data = vec![
         vec!["4 bytes", "char"],
     ];
-    print_table(headers, data);
+    print_table(headers, data, false);
 }
 
 fn booleans() {
@@ -193,7 +202,7 @@ fn print_booleans() {
     let data = vec![
         vec!["1 byte", "bool"],
     ];
-    print_table(headers, data);
+    print_table(headers, data, false);
 }
 
 fn unit() {
@@ -202,7 +211,18 @@ fn unit() {
     log!("Unit types are 0 bytes in size");
     log!("Unit types are written as ()");
     log!("");
-    log!("         Unit Type");
+}
+
+fn emoji_types() {
+    log!("==========Emoji Types (lol)==========");
+    print_table(
+        vec!["Person", "Cat (cute)", "Dog (ew)"],
+        vec![
+            vec!["👨", "🐱", "🐶"],
+            vec!["👩", "🐈", "🐕"],
+        ],
+        true
+    );
 }
 
 fn main() {
@@ -216,4 +236,5 @@ fn main() {
     booleans();
     log!("");
     unit();
+    emoji_types();
 }
