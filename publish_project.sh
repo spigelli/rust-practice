@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Really the only reason i wrote this script is because
+# I wanted to get more green squares on my github profile.
+
 # This script is used to push a new project to the repo
 
 # The first argument is the path to the project directory
