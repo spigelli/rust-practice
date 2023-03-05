@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Data Types",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/data_types/target/debug/data_types",
+      "args": [],
+      "cwd": "${workspaceRoot}/data_types"
+    },
+    {
       "name": "Launch Variables And Mutability",
       "type": "lldb",
       "request": "launch",
