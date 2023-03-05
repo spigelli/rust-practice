@@ -3,62 +3,86 @@ use rand::Rng;
 use std::cmp::Ordering;
 
 fn main() {
-    println!("Guess the number!");
-
-    println!("Please input your guess.");
+    println!("=== Guess the number! ===");
 
     let secret_number = rand::thread_rng()
         .gen_range(1..11);
 
-    let guess = String::new();
+    run_round(secret_number);
+}
 
-    let guess = get_guess(guess);
-
-    let did_win: bool;
+fn run_round(secret_number: u32) {
+    let guess = get_guess();
 
     // Now we can compare the guess to the secret number
-    match guess.cmp(&secret_number) {
+    let did_win = match guess.cmp(&secret_number) {
         Ordering::Less => {
-            did_win = false;
-            println!("Too small!")
+            println!("Too small!");
+            false
         }
         Ordering::Greater => {
-            did_win = false;
-            println!("Too big!")
+            println!("Too big!");
+            false
         }
         Ordering::Equal => {
-            did_win = true;
-            println!("You win!")
+            println!("You win!");
+            true
         }
-    }
+    };
 
     if !did_win {
-        print!("You lost! Boohoo! ");
-        println!("The secret number was: {secret_number}");
+        println!("You lost! Boohoo! ");
+        let should_retry = get_retry();
+        if should_retry {
+            run_round(secret_number);
+        } else {
+            println!("Sucks for you loser, the number was {}!", secret_number);
+        }
     } else {
-        println!("You won! Yay!")
+        println!("You won! Yay!");
     }
 }
 
-fn get_guess(mut guess: String) -> u32 {
+fn get_retry() -> bool {
+    println!("Try again? (y/n)");
+
+    let mut input = String::new();
     io::stdin()
-        .read_line(&mut guess)
+        .read_line(&mut input)
         .expect("Failed to read line");
 
-    println!("You guessed: {guess}");
+    return match input.trim() {
+        "y" => true,
+        "n" => false,
+        _ => {
+            println!("Please type y or n!");
+            get_retry()
+        },
+    }
+}
+
+fn get_guess() -> u32 {
+    println!("Please input your guess.");
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read line");
+
+    println!("You guessed: {}", input.trim());
 
     // Now we need to cast the string to an integer
     // We can do this with the parse method
-    let guess: u32 = match guess
+    match input
         .trim()
-        .parse() {
-            Ok(num) => num,
+        .parse::<u32>() {
+            Ok(num) => {
+                // Set the guess to the number and convert num from u32 to &mut u32
+                num
+            },
             Err(_) => {
                 println!("Please type a number!");
                 // Clear the guess
-                guess = String::new();
-                get_guess(guess)
+                get_guess()
             },
-        };
-    guess
+        }
 }
