@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Variables And Mutability",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/variables_and_mutability/target/debug/variables_and_mutability",
+      "args": [],
+      "cwd": "${workspaceRoot}/variables_and_mutability"
+    },
+    {
       "name": "Launch Guessing Game",
       "type": "lldb",
       "request": "launch",
