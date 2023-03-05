@@ -3,4 +3,7 @@
 members = [
   "guessing_game",
   "hello_cargo",
+  "variables_and_mutability",
+  "guessing_game",
+  "hello_cargo",
 ]
