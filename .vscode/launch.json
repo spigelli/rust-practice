@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Functions",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/functions/target/debug/functions",
+      "args": [],
+      "cwd": "${workspaceRoot}/functions"
+    },
+    {
       "name": "Launch Compound Types",
       "type": "lldb",
       "request": "launch",
