@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch References And Borrowing",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/references_and_borrowing/target/debug/references_and_borrowing",
+      "args": [],
+      "cwd": "${workspaceRoot}/references_and_borrowing"
+    },
+    {
       "name": "Launch Control Flow",
       "type": "lldb",
       "request": "launch",
