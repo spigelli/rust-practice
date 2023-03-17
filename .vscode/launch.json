@@ -5,6 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Enums",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/enums/target/debug/enums",
+      "args": [],
+      "cwd": "${workspaceRoot}/enums"
+    },
+    {
+      "name": "Launch Struct Example",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/struct_example/target/debug/struct_example",
+      "args": [],
+      "cwd": "${workspaceRoot}/struct_example"
+    },
+    {
       "name": "Launch Structs",
       "type": "lldb",
       "request": "launch",
