@@ -43,10 +43,7 @@ function create_cargo_project() {
     echo -e "\e[1;31mFailed to create cargo project: $PROJECT_DIR\e[0m" && \
     exit 1 \
   )
-} 
-
-### Insert a ldd 
-
+}
 
 # Construct vscode run configuration
 function construct_run_config(){
@@ -82,30 +79,10 @@ $EXISTING_CONFIG_END
   )
 }
 
-# Add the project dir to the members array in the Cargo.toml file at the root of the repo
-function add_project_to_cargo_toml() {
-  # Split the Cargo.toml file into two vars based on where
-  # the members array ends
-  MEMBERS_END="$(cat Cargo.toml | sed -n '/members = \[/,$p' | tail -n +2)"
-  # Everything up to and including the members array start line
-  MEMBERS_START="$(cat Cargo.toml | sed -n '1,/"members": \[/p' | head -n -1)"
-
-  # Write the new Cargo.toml file
-  echo -e "$MEMBERS_START
-  \"$PROJECT_DIR\",
-$MEMBERS_END" > Cargo.toml && \
-  echo -e "\e[1;32mSuccessfully added project to Cargo.toml\e[0m" || \
-  ( \
-    echo -e "\e[1;31mFailed to add project to Cargo.toml\e[0m" && \
-    exit 1 \
-  )
-}
-
 parse_args $@ && \
 check_repo_root && \
 create_cargo_project && \
 add_run_config && \
-add_project_to_cargo_toml && \
 cd $PROJECT_DIR && \
 cargo build && \
 cd - && \
