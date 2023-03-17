@@ -5,6 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Compound Types",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/compound_types/target/debug/compound_types",
+      "args": [],
+      "cwd": "${workspaceRoot}/compound_types"
+    },
+    {
+      "name": "Launch Compound Data Types",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/compound_data_types/target/debug/compound_data_types",
+      "args": [],
+      "cwd": "${workspaceRoot}/compound_data_types"
+    },
+    {
       "name": "Launch Data Types",
       "type": "lldb",
       "request": "launch",
