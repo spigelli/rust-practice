@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Structs",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/structs/target/debug/structs",
+      "args": [],
+      "cwd": "${workspaceRoot}/structs"
+    },
+    {
       "name": "Launch Slice Type",
       "type": "lldb",
       "request": "launch",
