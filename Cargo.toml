@@ -4,12 +4,6 @@ members = [
   "guessing_game",
   "hello_cargo",
   "variables_and_mutability",
-  "guessing_game",
-  "hello_cargo",
   "data_types",
-  "guessing_game",
-  "hello_cargo",
-  "variables_and_mutability",
-  "guessing_game",
-  "hello_cargo",
+  "compound_types"
 ]
