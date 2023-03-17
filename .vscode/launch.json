@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Slice Type",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/slice_type/target/debug/slice_type",
+      "args": [],
+      "cwd": "${workspaceRoot}/slice_type"
+    },
+    {
       "name": "Launch References And Borrowing",
       "type": "lldb",
       "request": "launch",

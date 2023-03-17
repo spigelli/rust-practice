@@ -97,6 +97,10 @@ name = "references_and_borrowing"
 version = "0.1.0"
 
 [[package]]
+name = "slice_type"
+version = "0.1.0"
+
+[[package]]
 name = "variables_and_mutability"
 version = "0.1.0"
 
