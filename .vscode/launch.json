@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Ownership",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/ownership/target/debug/ownership",
+      "args": [],
+      "cwd": "${workspaceRoot}/ownership"
+    },
+    {
       "name": "Launch Control Flow",
       "type": "lldb",
       "request": "launch",
