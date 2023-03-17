@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Enum Match",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/enum_match/target/debug/enum_match",
+      "args": [],
+      "cwd": "${workspaceRoot}/enum_match"
+    },
+    {
       "name": "Launch Option Enum Practice",
       "type": "lldb",
       "request": "launch",
