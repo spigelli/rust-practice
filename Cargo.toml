@@ -1,11 +1,11 @@
 [workspace]
 
 members = [
-  "guessing_game",
-  "hello_cargo",
-  "variables_and_mutability",
-  "data_types",
-  "compound_types",
-  "functions",
-  "control_flow"
+  "*/",
+]
+
+exclude = [
+  "target/",
+  ".git/",
+  ".vscode/",
 ]
