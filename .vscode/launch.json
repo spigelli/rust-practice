@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Option Enum Practice",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/option_enum_practice/target/debug/option_enum_practice",
+      "args": [],
+      "cwd": "${workspaceRoot}/option_enum_practice"
+    },
+    {
       "name": "Launch Enums",
       "type": "lldb",
       "request": "launch",
