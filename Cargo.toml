@@ -6,5 +6,6 @@ members = [
   "variables_and_mutability",
   "data_types",
   "compound_types",
-  "functions"
+  "functions",
+  "control_flow"
 ]
