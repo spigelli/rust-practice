@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Modules",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/modules/target/debug/modules",
+      "args": [],
+      "cwd": "${workspaceRoot}/modules"
+    },
+    {
       "name": "Launch Iflet",
       "type": "lldb",
       "request": "launch",
