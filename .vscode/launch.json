@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Collections",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/collections/target/debug/collections",
+      "args": [],
+      "cwd": "${workspaceRoot}/collections"
+    },
+    {
       "name": "Launch Modules",
       "type": "lldb",
       "request": "launch",
