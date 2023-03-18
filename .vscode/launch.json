@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Iflet",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceRoot}/iflet/target/debug/iflet",
+      "args": [],
+      "cwd": "${workspaceRoot}/iflet"
+    },
+    {
       "name": "Launch Enum Match",
       "type": "lldb",
       "request": "launch",
